@@ -1,34 +1,97 @@
-import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBIcon } from "mdbreact";
+import React, { useState } from "react";
+import { validateEmail } from "../../utils/helper.js";
 
-const ContactInfo = () => {
-  return (
-    <MDBContainer className="mt-5">
-      <MDBRow>
-        <MDBCol md="12" className="text-center">
-          <h2>Contact Information</h2>
-          <hr class="solid bg-dark" />
-          <img
-            style={{ height: "250px" }}
-            src=""
-            class="pr-4 pb-3 img-fluid"
-            alt="Kathy Rodriguez"
-          />
-          <h4>
-            Please feel free to contact me at any time and if I do not
-            immediately respond I will respond within the next buisness day.
-            Thank you!
-          </h4>
-          <hr className="hr-light w-25" />
-          <h3>E-mail</h3>
-          <hr className="hr-dark w-25" />
-          <a href="mailto:katrrodriguez26@gmail.com">
-            <MDBIcon icon="envelope" /> katrrodriguez26@gmail.com
-          </a>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
-  );
-};
+function Contact() {
+	const [formState, setFormState] = useState({
+		name: "",
+		email: "",
+		message: "",
+	});
 
-export default ContactInfo;
+	const [errorMessage, setErrorMessage] = useState("");
+
+	const { name, email, message } = formState;
+
+	function handleChange(e) {
+		if (e.target.name === "email") {
+			const isValid = validateEmail(e.target.value);
+			if (!isValid) {
+				setErrorMessage("Your email is invalid.");
+			} else {
+				if (!e.target.value.length) {
+					setErrorMessage(`${e.target.name} is required.`);
+				} else {
+					setErrorMessage("");
+				}
+			}
+		}
+
+		if (!errorMessage) {
+			setFormState({ ...formState, [e.target.name]: e.target.value });
+		}
+	}
+
+	function handleBlank(e) {
+		if (e.target.name === "Name" || e.target.name === "Message") {
+			if (!e.target.value.length) {
+				setErrorMessage(`${e.target.name} is required.`);
+			} else {
+				setErrorMessage("");
+			}
+		}
+
+		if (!errorMessage) {
+			setFormState({ ...formState, [e.target.name]: e.target.value });
+		}
+	}
+
+	return (
+		<section>
+			<div className="center">
+				<h2 className="page-header">Contact Me</h2>
+			</div>
+			<div>
+				<form id="contact-form">
+					<div>
+						<label htmlFor="Name">Name:</label>
+						<br></br>
+						<input
+							type="text"
+							defaultValue={name}
+							onBlur={handleBlank}
+							name="Name"
+						/>
+					</div>
+					<div>
+						<label htmlFor="email">Email address:</label>
+						<br></br>
+						<input
+							type="email"
+							defaultValue={email}
+							name="email"
+							onBlur={handleChange}
+						/>
+					</div>
+					<div>
+						<label htmlFor="Message">Message:</label>
+						<br></br>
+						<textarea
+							name="Message"
+							defaultValue={message}
+							onBlur={handleBlank}
+							rows="5"
+						/>
+					</div>
+					{errorMessage && (
+						<div>
+							<p className="error-text">{errorMessage}</p>
+						</div>
+					)}
+					<button type="submit">Submit</button>
+				</form>
+			</div>
+		</section>
+	);
+}
+
+export default Contact;

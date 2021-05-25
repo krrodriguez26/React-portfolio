@@ -1,240 +1,127 @@
-import React from "react";
-import {
-  MDBCardGroup,
-  MDBIcon,
-  MDBContainer,
-  MDBBtn,
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
-  MDBCardTitle,
-  MDBCardText,
-} from "mdbreact";
+import React from 'react';
+import Project from '../Project';
 
-const Projects = () => {
-  return (
-    <MDBContainer className="mt-5">
-      <MDBCardGroup deck className="mt-3">
-        <MDBCard className="border border-dark">
-          <MDBCardImage
-            style={{ width: "485px" }}
-            src="https://github.com/krrodriguez26/hori-seon/blob/main/assets/images/homepage.png"
-            alt="Horiseon"
-            top
-          />
-          <MDBCardBody>
-            <MDBCardTitle tag="h5">Horiseon</MDBCardTitle>
-            <MDBCardText>
-            A marketing agency needs help refactoring an existing site to make 
-            it more accessible, and is optimized for search engines.
-            </MDBCardText>
-            <MDBBtn
-              href="https://github.com/krrodriguez26/hori-seon"
-              color="primary"
-              size="md"
-            >
-              <MDBIcon icon="clone left" className="mr-1" />
-              View Project
-            </MDBBtn>
-          </MDBCardBody>
-        </MDBCard>
+function Portfolio() {
+	const projects = [
+		{
+			name: 'Living Real',
+			description:
+				'This is a property management system that is used by landlords viewing and managing their properties and for tenants to allow for maintenance requests and pay rent.',
+			image: 'living-real-image.png',
+			technologies: [
+				'HTML/CSS',
+				'JavaScript',
+				'Node.js',
+				'Express & NoSQL',
+				'Heroku & AWS S3',
+				'React.js',
+				'MERN Stack',
+			],
+			github: 'https://github.com/P3T2-Realty-Rogues/living-real',
+			deployed: 'https://living-real.herokuapp.com/',
+		},
+		{
+			name: 'Auto Tracker',
+			description:
+				'This is your personal automobile information tracking system. Track time dependent, vehicle specific information from a single application, available on any web-enabled device.',
+			image: 'auto-tracker-image.png',
+			technologies: [
+				'HTML/CSS',
+				'JavaScript',
+				'Node.js',
+				'Handlebars.js',
+				'Express & Sequelize',
+				'Heroku & AWS S3',
+			],
+			github: 'https://github.com/OwaisIslam/auto-tracker',
+			deployed: 'https://team-3-auto-tracker.herokuapp.com/',
+		},
+		{
+			name: 'Flash Beats',
+			description:
+				'A clean and accurate way to search for your favorite songs while also displaying the lyrics.',
+			image: 'flash-beats-image.gif',
+			technologies: ['HTML/CSS', 'JavaScript', 'jQuery'],
+			github: 'https://github.com/OwaisIslam/flash-beats',
+			deployed: 'https://teamflash1.github.io/music-app/',
+		},
+		{
+			name: 'Budget Tracker',
+			description:
+				'Budget Tracker is an Application that uses a noSQL database and offline persistance for a great user experience for managing their finances and budgeting no matter where they are.',
+			image: 'budget-tracker-image.png',
+			technologies: [
+				'JavaScript',
+				'MongoDB',
+				'IndexedDB & Service Workers',
+				'Node.js',
+				'Express',
+			],
+			github: 'https://github.com/OwaisIslam/budget-tracker',
+			deployed: 'https://budget-tracker-owais.herokuapp.com/',
+		},
+		{
+			name: 'Weather Dashboard',
+			description:
+				'A weather dashboard that shows current weather and five-day weather forecast for any city.',
+			image: 'weather-dashboard-image.png',
+			technologies: ['HTML/CSS', 'JavaScript'],
+			github: 'https://github.com/OwaisIslam/weather-dashboard',
+			deployed: 'https://owaisislam.github.io/weather-dashboard/',
+		},
+		{
+			name: 'Password Generator',
+			description:
+				'This is an application that allows you to generate a password from 8 to 128 characters based on criteria you select.',
+			image: 'password-generator-image.png',
+			technologies: ['HTML/CSS', 'JavaScript'],
+			github: 'https://github.com/OwaisIslam/password-generator',
+			deployed: 'https://owaisislam.github.io/password-generator/',
+		},
+		{
+			name: 'Note Taker',
+			description:
+				'This application allows the user to enter notes and as they save, they appear in the sidebar on the left. Notes can be deleted by clicking the trash can next to the corresponding note.',
+			image: 'note-taker-image.png',
+			technologies: ['HTML/CSS', 'JavaScript', 'Express.js'],
+			github: 'https://github.com/OwaisIslam/note-taker',
+			deployed: 'https://note-taker-owais.herokuapp.com/',
+		},
+	];
 
-        <MDBCard className="border border-dark">
-          <MDBCardImage
-            className="img-fluid"
-            src="https://github.com/krrodriguez26/PasswordGenerator/blob/main/assets/generatingpassword.png"
-            alt="Password Generator"
-            top
-          />
-          <MDBCardBody>
-            <MDBCardTitle tag="h5">Password Generator</MDBCardTitle>
-            <MDBCardText>
-            A password generator that an employee/organization can use to generate 
-            a secure random password bassed on criteria the user has selected.
-            </MDBCardText>
-            <MDBBtn
-              href="https://github.com/krrodriguez26/PasswordGenerator"
-              color="primary"
-              size="md"
-            >
-              <MDBIcon icon="clone left" className="mr-1" />
-              View Project
-            </MDBBtn>
-          </MDBCardBody>
-        </MDBCard>
+	return (
+		<section>
+			<div className="center">
+				<h1 className="page-header">My Portfolio</h1>
+			</div>
+			<div>
+				<ul className="flex-row mobile-row">
+					<li className="padding">
+						<Project projects={projects[0]}></Project>
+					</li>
+					<li className="padding">
+						<Project projects={projects[1]}></Project>
+					</li>
+				</ul>
+				<ul className="flex-row mobile-row">
+					<li className="padding">
+						<Project projects={projects[2]}></Project>
+					</li>
+					<li className="padding">
+						<Project projects={projects[3]}></Project>
+					</li>
+				</ul>
+				<ul className="flex-row mobile-row">
+					<li className="padding">
+						<Project projects={projects[4]}></Project>
+					</li>
+					<li className="padding">
+						<Project projects={projects[5]}></Project>
+					</li>
+				</ul>
+			</div>
+		</section>
+	);
+}
 
-        <MDBCard className="border border-dark">
-          <MDBCardImage
-            style={{ height: "283px" }}
-            className="img-fluid"
-            src="https://github.com/krrodriguez26/JavaScriptFundamentals/blob/main/assets/Screen%20Shot%202021-01-18%20at%209.28.24%20PM.png"
-            alt="JavaScript Quiz"
-            top
-          />
-          <MDBCardBody>
-            <MDBCardTitle tag="h5">JavaScript Quiz</MDBCardTitle>
-            <MDBCardText>
-            A coding quiz with multiple-choice questions,running counter. 
-            Everytime the the question is answered correctly the background of the page 
-            will turn green, when answered incorrectly the background will turn red.
-            </MDBCardText>
-            <MDBBtn
-              href="https://github.com/krrodriguez26/JavaScriptFundamentals"
-              color="primary"
-              size="md"
-            >
-              <MDBIcon icon="clone left" className="mr-1" />
-              View Project
-            </MDBBtn>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCardGroup>
-      <MDBCardGroup deck className="mt-3">
-        <MDBCard className="border border-dark">
-          <MDBCardImage
-            className="img-fluid"
-            src="https://github.com/krrodriguez26/WeeklyPlanner/blob/main/Assets/Mock%20UP.png"
-            alt="Weekly Planner"
-            top
-          />
-          <MDBCardBody>
-            <MDBCardTitle tag="h5">Weekly Planner</MDBCardTitle>
-            <MDBCardText>
-            Allows for user to effectively keep track of their time by adding tasks in the planner.
-            </MDBCardText>
-            <MDBBtn
-              href="https://github.com/krrodriguez26/WeeklyPlanner"
-              color="primary"
-              size="md"
-            >
-              <MDBIcon icon="clone left" className="mr-1" />
-              View Project
-            </MDBBtn>
-          </MDBCardBody>
-        </MDBCard>
-
-        <MDBCard className="border border-dark">
-          <MDBCardImage
-            style={{ height: "225px" }}
-            className="img-fluid"
-            src=""
-            alt="ReadMe Generator"
-            top
-          />
-          <MDBCardBody>
-            <MDBCardTitle tag="h5">ReadMe Generator</MDBCardTitle>
-            <MDBCardText>
-            Create a command line application that dynamically generates a README.md from a user`s input.
-            </MDBCardText>
-            <MDBBtn
-              href="https://github.com/krrodriguez26/ReadMe_generator"
-              color="primary"
-              size="md"
-            >
-              <MDBIcon icon="clone left" className="mr-1" />
-              View Project
-            </MDBBtn>
-          </MDBCardBody>
-        </MDBCard>
-
-        <MDBCard className="border border-dark">
-          <MDBCardImage
-            style={{ height: "225px" }}
-            className="img-fluid"
-            src="https://github.com/krrodriguez26/Note_Taker/blob/main/Assets/Screenshot%20localhost.png"
-            alt="Note Taker"
-            top
-          />
-          <MDBCardBody>
-            <MDBCardTitle tag="h5">Note Taker</MDBCardTitle>
-            <MDBCardText>
-            This simple note taking application allows you to write and save notes with a title and plain text.
-            </MDBCardText>
-            <MDBBtn
-              href="https://github.com/krrodriguez26/Note_Taker"
-              color="primary"
-              size="md"
-            >
-              <MDBIcon icon="clone left" className="mr-1" />
-              View Project
-            </MDBBtn>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCardGroup>
-      <MDBCardGroup deck className="mt-3">
-        <MDBCard className="border border-dark">
-          <MDBCardImage
-            style={{ height: "205px" }}
-            src="https://github.com/krrodriguez26/ActiveHer/blob/main/Main/public/Assets/Homepage.png"
-            alt="ActiveHer"
-            top
-          />
-          <MDBCardBody>
-            <MDBCardTitle tag="h5">ActiveHer</MDBCardTitle>
-            <MDBCardText>
-            COVID-19 has impacted our day-to-day life and mental well-being. 
-            We created an app that creates an empowering and mindful space where women can create 
-            activity groups such as; rollerblading, running, biking ect. and meet up at local parks.
-            </MDBCardText>
-            <MDBBtn
-              href="https://github.com/krrodriguez26/ActiveHer"
-              color="primary"
-              size="md"
-            >
-              <MDBIcon icon="clone left" className="mr-1" />
-              View Project
-            </MDBBtn>
-          </MDBCardBody>
-        </MDBCard>
-
-        <MDBCard className="border border-dark">
-          <MDBCardImage
-            src="https://github.com/krrodriguez26/User-Directory/blob/main/assets/EmployeeDirectory.png"
-            alt="User-Directory"
-            top
-          />
-          <MDBCardBody>
-            <MDBCardTitle tag="h5">User Directory</MDBCardTitle>
-            <MDBCardText>
-            This app allows for a user to be able to view my an employee 
-            directory at once for quicker access to their information.
-            </MDBCardText>
-            <MDBBtn
-              href="https://github.com/krrodriguez26/User-Directory"
-              color="primary"
-              size="md"
-            >
-              <MDBIcon icon="clone left" className="mr-1" />
-              View Project
-            </MDBBtn>
-          </MDBCardBody>
-        </MDBCard>
-
-        <MDBCard className="border border-dark">
-          <MDBCardImage
-            style={{ height: "205px" }}
-            src=""
-            alt=""
-            top
-          />
-          <MDBCardBody>
-            <MDBCardTitle tag="h5"> </MDBCardTitle>
-            <MDBCardText>
-           
-            </MDBCardText>
-            <MDBBtn
-              href=""
-              color="primary"
-              size="md"
-            >
-              <MDBIcon icon="clone left" className="mr-1" />
-              View Project
-            </MDBBtn>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCardGroup>
-    </MDBContainer>
-  );
-};
-
-export default Projects;
+export default Portfolio;

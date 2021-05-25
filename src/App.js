@@ -1,29 +1,43 @@
-import React from "react";
-import { HashRouter, Route } from "react-router-dom";
-import Navbar from "./components/Navbar/index";
-import Footer from "./components/Footer/index";
-import Wrapper from "./components/Wrapper/index";
-import About from "./pages/About";
-import Portfolio from "./pages/Portfolio";
-import Contact from "./pages/Contact";
+import "./App.css";
+import React, { useState } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import About from "./components/About";
+import Portfolio from "./components/Portfolio";
+import Contact from "./components/Contact";
+
 
 
 function App() {
-  return (
-    <HashRouter basename="/">
-      <div>
-        <Navbar />
-        <Wrapper>
-          <Route exact path="/" component={About} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/portfolio" component={Portfolio} />
-          <Route exact path="/contact" component={Contact} />
-        </Wrapper>
-        <Footer />
-      </div>
-    </HashRouter>
-  );
+	const [currentTab, setCurrentTab] = useState("about");
+
+	// This function checks to see which tab is selected and then generates the appropriate tab.
+	const renderTab = () => {
+		switch (currentTab) {
+			case "about":
+				return <About />;
+			case "portfolio":
+				return <Portfolio />;
+			case "contact":
+				return <Contact />;
+			default:
+				return null;
+		}
+	};
+
+	return (
+		<div>
+			<div className="mobile-header">
+				<Header currentTab={currentTab} setCurrentTab={setCurrentTab}></Header>
+			</div>
+			<div>
+				<main>{renderTab()}</main>
+			</div>
+			<div>
+				<Footer></Footer>
+			</div>
+		</div>
+	);
 }
 
 export default App;
-
