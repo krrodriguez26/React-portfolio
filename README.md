@@ -17,5 +17,5 @@ Now that you've worked with React and have multiple projects to share, you'll be
 https://krrodriguez26.github.io/React-portfolio/
 
 # Screenshot
-![](relative url where images is located/refrence_image.png) 
+![](https://github.com/krrodriguez26/React-portfolio/blob/main/public/assets/images/Screen%20Shot%202021-05-26%20at%2010.16.49%20PM.png) 
 
