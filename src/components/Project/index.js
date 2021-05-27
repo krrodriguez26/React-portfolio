@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import {Card, Images} from "react-bootstrap";
-
+import {Card, Image} from "react-bootstrap";
 
 
 
@@ -34,8 +33,7 @@ function Project(props) {
 		<Card style={{ width: "18rem" }}>
 			<Card.Img
 				variant="top"
-				src="https://source.unsplash.com/user/erondu/600x400"
-				// {('../../../public/assets/images/aboutme.png')}
+				src={(`assets/images/${image}`)}
 				// className="image-fluid"
 			/>
 			<div className="center">

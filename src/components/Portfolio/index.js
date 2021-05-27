@@ -7,7 +7,7 @@ function Portfolio() {
 			name: 'Password Generator',
 			description:
 				'A password generator that an employee/organization can use to generate a secure random password based on criteria the user has selected.',
-			image: 'generatingpassword.png',
+			src:"assets/images/generatingpassword.png",
 			technologies: [
 				'HTML/CSS',
 				'JavaScript',
@@ -51,7 +51,7 @@ function Portfolio() {
 			name: 'ReadMe Generator',
 			description:
 				'Create a command line application that dynamically generates a README.md from a user`s input.',
-			image: '',
+			image: 'Readme.png',
 			technologies: ['HTML/CSS', 'JavaScript', 'Node'],
 			github: 'https://github.com/krrodriguez26/ReadMe_generator',
 			
