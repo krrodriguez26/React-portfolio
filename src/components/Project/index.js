@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import Card from "react-bootstrap/Card";
+import {Card, Images} from "react-bootstrap";
+
+
+
 
 function Project(props) {
 	// This imports the information for the current project sent down.
@@ -31,8 +34,9 @@ function Project(props) {
 		<Card style={{ width: "18rem" }}>
 			<Card.Img
 				variant="top"
-				src={require(`../../assets/images/${image}`)}
-				className="card-image"
+				src="https://source.unsplash.com/user/erondu/600x400"
+				// {('../../../public/assets/images/aboutme.png')}
+				// className="image-fluid"
 			/>
 			<div className="center">
 				<Card.Body>
